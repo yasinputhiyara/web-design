@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother Teresa - Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <style>
+        /* Custom CSS */
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Mother Teresa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="achievements.html">Achievements</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Mother Teresa</h1>
+            <p class="lead">"Not all of us can do great things. But we can do small things with great love."</p>
+            <a href="#learn-more" class="hero-btn">Learn More</a>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="learn-more" class="intro-section">
+        <div class="container">
+            <h2 class="section-title text-center fade-in">Who was Mother Teresa?</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="intro-card">
+                        <img src="/img/img1.webp" alt="Early Life">
+                        <h3>Early Life</h3>
+                        <p>Born in 1910 in Skopje (now part of North Macedonia), Mother Teresa felt a calling to religious life at a young age and joined the Sisters of Loreto at the age of 18.</p>
+                        <a href="about.html" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="intro-card">
+                        <img src="/img/img2.webp" alt="Missionary Work">
+                        <h3>Missionary Work</h3>
+                        <p>In 1950, she founded the Missionaries of Charity, dedicated to serving the poorest of the poor. Her work began in the slums of Calcutta and expanded globally.</p>
+                        <a href="achievements.html" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="intro-card">
+                        <img src="/img/legacy.webp" alt="Legacy">
+                        <h3>Legacy</h3>
+                        <p>Mother Teresa received numerous awards, including the Nobel Peace Prize in 1979. She was canonized as Saint Teresa of Calcutta by Pope Francis in 2016.</p>
+                        <a href="achievements.html" class="read-more">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote">
+                "Peace begins with a smile. If we have no peace, it is because we have forgotten that we belong to each other."
+                <div class="quote-author">— Mother Teresa</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Mother Teresa Portfolio</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <p class="copyright">© 2025 Mother Teresa Legacy Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Show hero content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelector('.hero-content').classList.add('active');
+            }, 300);
+            
+            // Initial check for elements in viewport
+            checkElements();
+        });
+        
+        // Animation on scroll
+        function checkElements() {
+            const elements = document.querySelectorAll('.fade-in, .intro-card, .quote');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if (position.top < window.innerHeight * 0.85) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        // Listen for scroll to animate elements
+        window.addEventListener('scroll', function() {
+            checkElements();
+        });
+    </script>
+</body>
+</html>
